@@ -91,7 +91,7 @@
         	$.mobile.showPageLoadingMsg("b", "Фотографијата се испраќа...", true);
             // gomail();
         
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
         var latt;
         var lonn;
         var obj;
