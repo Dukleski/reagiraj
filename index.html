@@ -1,0 +1,148 @@
+<!-- Copyright (c) 2012 Mobile Developer Solutions -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    	<title>Фотографирај и Реагирај</title>
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="index.css" /> 
+
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="index.js"></script>
+
+  </head>
+  <body>
+    
+	<div data-role="page" id="splashscreen" style="color:#002a6c; background-image: url(img/pocetna.png); background-size: cover; background-repeat:no-repeat; margin:0 auto;">
+	</div>
+	
+  	<div data-role="page" id="glavna" style="background-image: url(img/najava.png); background-size: cover; background-repeat:no-repeat;">
+  		<div data-role="header" id="hederr">
+  				<div class="heder"><img src="img/logoKraj.png" width="100%" height="30%" /></div>
+  				<div id="skrol">
+    			<marquee behavior="scroll" direction="left">
+					<span id="tekst" style="white-space: nowrap;"></span>
+				</marquee>
+				</div>
+  		</div>
+  		<div data-role="content" class="content" id="sodrzina">
+  				<div class="zaslika" id="kamera" onclick="capturePhoto();">
+         			<img id="image" width="40%" src="img/kam1.png" /></td>
+   				</div>
+  		</div>
+  		<div data-role="footer" id="prati" data-position="fixed" data-theme="a" style="color: #2e88ae;">ИСПРАТИ</div>
+ 
+	</div>
+	
+	<div data-role="dialog" id="vnes">
+  	<div data-role="content" id="forma">
+ 		<form name="forma" id="formaVnes" accept-charset = "utf-8">
+
+ 		<div id="proba" style="color:#002a6c; background-image: url(img/najava.png); background-size: cover; background-repeat:no-repeat; border:6px groove green; margin:0 auto;">
+
+   		<label for="ime"><b>ИМЕ:</b></label>
+   		<input data-mini="true" type="text" name="ime" id= "firstName" placeholder="Вашето име" style="color:#ff9900; width:95%;"></input></br>
+
+   		<label for = "prezime"><b>ПРЕЗИМЕ:</b></label>
+   		<input data-mini="true" type="text" name="prezime" id="lastName" placeholder="Вашето презиме" style="width:95%; color:#ff9900;" ></input></br>
+   		
+   		<label for = "mejl"><b>Еmail:</b></label>
+   		<input data-mini="true" type="email" name="mejl" id="imejl" placeholder="email адреса" style="width:95%; color:#ff9900;"></input></br>
+					
+		<div class="vozrastDiv">
+		<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<legend>
+    			<b>Возраст:</b>
+    		</legend>
+    		<div class="ui-grid-b">
+    		<div class="ui-block-b">
+			<label data-inline="true" style="width: 100%;" for="pod18">под 18</label>
+			<input type="radio" name="vozrast" id="pod18" class="vozrast" value="Под 18 години">
+			</div>
+			<div class="ui-block-b">
+			<label data-inline="true" style="width: 100%;" for="18do25">18 - 25</label>
+			<input type="radio" name="vozrast" id="18do25" class="vozrast" value="Од 18 до 25 години">
+			</div>
+			<div class="ui-block-b">
+			<label data-inline="true" style="width: 100%;" for="nad25">над 25</label>
+			<input type="radio" name="vozrast" id="nad25" class="vozrast" value="Над 25 години">
+			</div>
+			</div>
+		</fieldset>
+		</div>
+		<div class="polDiv">
+		<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<legend>
+    			<b>Пол:</b>
+    		</legend>
+    		<div class="ui-grid-a">
+    		<div class="ui-block-b">
+			<label data-inline="true" style="width: 100%;" for="maski">Машки</label>
+			<input type ="radio" name="pol" id="maski" class="pol" value="Машки">
+			</div>
+			<div class="ui-block-b">
+			<label data-inline="true" style="width: 100%;" for="zenski">Женски</label>
+			<input type ="radio" name="pol" id="zenski" class="pol" value="Женски">
+			</div>
+			</div>
+		</fieldset>		
+		</div>
+		
+		<div id="kopceVnesi">
+   			<a href="#" id ="add" data-role="button" data-theme="e" data-inline="true" style= "width:50%;">Внеси</a>
+		</div>
+		<div id="sponzori">
+			<img src="img/usaid.png" width="50%;" style="float: left;" />
+			<img src="img/OO.jpg" width="40%;" style="float: right;" />
+		</div>
+		
+ 		</div>
+	</form>
+	</div>
+ 	</div> 	
+ 	<div data-role="page" id="meni" style="background-image: url(img/najava.png); background-size: cover; background-repeat:no-repeat;">
+ 		<div data-role="content">
+ 			<ul id="lista" class="akaunti" data-role="listview" data-theme="a">
+ 			</ul>
+ 		</div>
+ 		<div data-role="footer" data-theme="a" class="ui-bar-a ui-footer ui-footer-fixed fade ui-fixed-overlay" onclick="dodadi();">
+ 			<h1>Додаj корисник</h1>
+ 		</div>
+ 	</div>
+ 	
+ 	
+ 	<div data-role="dialog" id="kategorii">
+ 		<div id="catBack" data-role="content" style="background-image: url(img/najava.png); background-size: cover; background-repeat:no-repeat;">
+ 			<fieldset data-role="controlgroup" id="kategorijaRadio">
+ 				<div id="legenda">
+ 				<legend>
+ 					<h3>Категорија на проблемот:</h3>
+ 				</legend>
+ 				</div>
+ 				
+ 				<label for="voda"><p>Вода и канализација</p></label>
+ 				<input type="radio" data-theme="a" name="kategorija" id="voda" value="Вода и канализација">
+ 				
+ 				<label for="sahti"><p>Шахти и пукнати цевки</p></label>
+ 				<input type="radio" data-theme="a" name="kategorija" id="sahti"  value="Шахти и пукнати цевки">
+ 				
+ 				<label for="soobrakaj"><p>Сообраќајна сигнализација, улици и патишта</p></label>
+ 				<input type="radio" data-theme="a" name="kategorija" id="soobrakaj" value="Сообраќајна сигнализација, улици и патишта">
+ 				
+ 				<label for="otpad"><p>Отпад</p></label>
+ 				<input type="radio" data-theme="a" name="kategorija" id="otpad" value="Отпад">
+ 				
+ 				<label for="sredina"><p>Животна средина</p></label>
+ 				<input type="radio" data-theme="a" name="kategorija" id="sredina" value="Животна средина">
+ 				
+ 			</fieldset>
+ 		</div>
+ 	</div>
+    
+  </body>
+</html>
