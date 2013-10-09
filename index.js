@@ -120,7 +120,7 @@
                   options.chunkedMode = false;
 
                   var ft = new FileTransfer();
-                  ft.upload(slik, "http://fotografiraj.webatu.com/upload.php", win, fail, options);
+                  ft.upload(slik, "http://reagiram.mk/upload.php", win, fail, options);
                   
                   function win(r) {
                       console.log("Code = " + r.responseCode);
@@ -134,7 +134,7 @@
                       var a1 = a.substr(0,13);
                     //  alert(a1);
                       
-                      var postTo = 'http://fotografiraj.webatu.com/isprati11.php';
+                      var postTo = 'http://reagiram.mk/isprati11.php';
                       
                       $.post(postTo,{korisnikID: korisnikID, first_name: ime, last_name: prezime, email: posta, slika: a1, lok: lokacija, vozrast: vozrast, pol: pol, kategorija: kategorija})
                           	.done(function(data) {
@@ -197,7 +197,7 @@
                     else{                    	
                     	$.mobile.showPageLoadingMsg();
                         // ZEMI KORISNICKI ID	
-                    	$.post("http://fotografiraj.webatu.com/test.php", { ime: firstName, prezime: lastName, email: email, vozrast: vozrast, pol: pol })
+                    	$.post("http://reagiram.mk/test.php", { ime: firstName, prezime: lastName, email: email, vozrast: vozrast, pol: pol })
                     	.done(function(data) {
                             
                     		korisnikID = data.substr(0,13);
